@@ -18,7 +18,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.CompressionCodecs;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import net.oopscraft.application.core.PasswordBasedEncryptor;
+import net.oopscraft.core.PasswordBasedEncryptor;
 import net.oopscraft.application.property.PropertyService;
 import net.oopscraft.application.user.User;
 import net.oopscraft.application.user.UserService;

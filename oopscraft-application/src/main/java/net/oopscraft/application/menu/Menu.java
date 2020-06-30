@@ -28,7 +28,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 
-import net.oopscraft.application.core.jpa.SystemEntity;
+import net.oopscraft.core.jpa.SystemEntity;
 import net.oopscraft.application.security.SecurityPolicy;
 import net.oopscraft.application.user.Authority;
 

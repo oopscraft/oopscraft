@@ -1,6 +1,6 @@
 package net.oopscraft.application;
 
-import net.oopscraft.application.core.webserver.Type;
+import net.oopscraft.core.webserver.Type;
 import net.oopscraft.application.security.SecurityPolicy;
 
 public class ApplicationConfig {

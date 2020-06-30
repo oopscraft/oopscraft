@@ -6,7 +6,7 @@ import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import net.oopscraft.application.core.IdGenerator;
+import net.oopscraft.core.IdGenerator;
 import net.oopscraft.application.email.Email;
 import net.oopscraft.application.email.EmailService;
 import net.oopscraft.application.user.Verification.IssueType;

@@ -19,7 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import net.oopscraft.application.board.Board;
 import net.oopscraft.application.board.BoardService;
-import net.oopscraft.application.core.Pagination;
+import net.oopscraft.core.Pagination;
 import net.oopscraft.application.security.SecurityPolicy;
 
 @PreAuthorize("hasAuthority('ADMN_BORD')")

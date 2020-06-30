@@ -29,9 +29,9 @@ import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
-import net.oopscraft.application.core.JsonConverter;
-import net.oopscraft.application.core.Pagination;
-import net.oopscraft.application.core.ValueMap;
+import net.oopscraft.core.JsonConverter;
+import net.oopscraft.core.Pagination;
+import net.oopscraft.core.ValueMap;
 import net.oopscraft.application.locale.LocaleService;
 import net.oopscraft.application.message.MessageService;
 

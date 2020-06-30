@@ -3,8 +3,8 @@ package net.oopscraft.application.admin.controller;
 import org.junit.Test;
 import org.springframework.security.test.context.support.WithMockUser;
 
-import net.oopscraft.application.core.JsonConverter;
-import net.oopscraft.application.core.ValueMap;
+import net.oopscraft.core.JsonConverter;
+import net.oopscraft.core.ValueMap;
 import net.oopscraft.application.test.ApplicationTestRunner;
 import net.oopscraft.application.user.User;
 

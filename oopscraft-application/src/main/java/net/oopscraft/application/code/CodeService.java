@@ -13,8 +13,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import net.oopscraft.application.core.Pagination;
-import net.oopscraft.application.core.jpa.SystemEmbeddedException;
+import net.oopscraft.core.Pagination;
+import net.oopscraft.core.jpa.SystemEmbeddedException;
 
 @Service
 public class CodeService {

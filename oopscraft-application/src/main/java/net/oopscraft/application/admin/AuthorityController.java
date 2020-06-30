@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import net.oopscraft.application.core.Pagination;
 import net.oopscraft.application.user.Authority;
 import net.oopscraft.application.user.AuthorityService;
+import net.oopscraft.core.Pagination;
 
 @PreAuthorize("hasAuthority('ADMN_AUTH')")
 @Controller

@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import net.oopscraft.application.core.jpa.BooleanStringConverter;
+import net.oopscraft.core.jpa.BooleanStringConverter;
 
 @Entity
 @Table(name = "APP_VERI_HIST")

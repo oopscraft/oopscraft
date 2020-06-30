@@ -41,11 +41,11 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.RestController;
 
-import net.oopscraft.application.core.PasswordBasedEncryptor;
-import net.oopscraft.application.core.ValueMap;
-import net.oopscraft.application.core.mybatis.CamelCaseValueMap;
-import net.oopscraft.application.core.mybatis.PageRowBoundsInterceptor;
-import net.oopscraft.application.core.mybatis.YesNoBooleanTypeHandler;
+import net.oopscraft.core.PasswordBasedEncryptor;
+import net.oopscraft.core.ValueMap;
+import net.oopscraft.core.mybatis.CamelCaseValueMap;
+import net.oopscraft.core.mybatis.PageRowBoundsInterceptor;
+import net.oopscraft.core.mybatis.YesNoBooleanTypeHandler;
 import net.oopscraft.application.message.MessageSource;
 
 /**
@@ -54,7 +54,7 @@ import net.oopscraft.application.message.MessageSource;
  */
 @Configuration
 @ComponentScan(
-	 nameGenerator = net.oopscraft.application.core.spring.FullBeanNameGenerator.class
+	 nameGenerator = net.oopscraft.core.spring.FullBeanNameGenerator.class
 	,excludeFilters = @Filter(type=FilterType.ANNOTATION, value= {
 		 Configuration.class
 		,Controller.class
@@ -68,7 +68,7 @@ import net.oopscraft.application.message.MessageSource;
 )
 @MapperScan(
 	 annotationClass=Mapper.class
-	,nameGenerator = net.oopscraft.application.core.spring.FullBeanNameGenerator.class
+	,nameGenerator = net.oopscraft.core.spring.FullBeanNameGenerator.class
 	,sqlSessionFactoryRef = "sqlSessionFactory"
 	,basePackages = "net.oopscraft.application"
 )
@@ -152,7 +152,7 @@ public class ApplicationContext {
         // cache configuration
         jpaProperties.setProperty(AvailableSettings.USE_SECOND_LEVEL_CACHE, "true");
         jpaProperties.setProperty(AvailableSettings.USE_QUERY_CACHE, "true");
-        jpaProperties.setProperty(AvailableSettings.CACHE_REGION_FACTORY, net.oopscraft.application.core.jpa.JCacheRegionFactory.class.getName());
+        jpaProperties.setProperty(AvailableSettings.CACHE_REGION_FACTORY, net.oopscraft.core.jpa.JCacheRegionFactory.class.getName());
 
         // generates DDL options
 		String generateDdl = System.getProperty("application.entityManagerFactory.generateDdl");

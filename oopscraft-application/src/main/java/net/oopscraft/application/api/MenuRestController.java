@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.LocaleResolver;
 
-import net.oopscraft.application.core.Pagination;
+import net.oopscraft.core.Pagination;
 import net.oopscraft.application.menu.Menu;
 import net.oopscraft.application.menu.MenuService;
 import net.oopscraft.application.security.SecurityEvaluator;

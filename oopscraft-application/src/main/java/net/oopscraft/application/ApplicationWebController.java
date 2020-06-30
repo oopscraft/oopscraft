@@ -21,7 +21,7 @@ import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
-import net.oopscraft.application.core.ValueMap;
+import net.oopscraft.core.ValueMap;
 import net.oopscraft.application.locale.LocaleService;
 import net.oopscraft.application.property.Property;
 import net.oopscraft.application.property.PropertyService;

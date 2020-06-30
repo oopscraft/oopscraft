@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import net.oopscraft.application.core.Pagination;
+import net.oopscraft.core.Pagination;
 import net.oopscraft.application.message.Message;
 import net.oopscraft.application.message.MessageService;
 

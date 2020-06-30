@@ -5,7 +5,7 @@ import java.util.List;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import net.oopscraft.application.core.JsonConverter;
+import net.oopscraft.core.JsonConverter;
 import net.oopscraft.application.test.ApplicationTestRunner;
 
 //@Commit

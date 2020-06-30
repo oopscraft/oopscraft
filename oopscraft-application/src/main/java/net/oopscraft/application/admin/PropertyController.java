@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import net.oopscraft.application.core.Pagination;
+import net.oopscraft.core.Pagination;
 import net.oopscraft.application.property.Property;
 import net.oopscraft.application.property.PropertyService;
 

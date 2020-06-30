@@ -11,8 +11,8 @@ import net.oopscraft.application.board.Article;
 import net.oopscraft.application.board.ArticleFile;
 import net.oopscraft.application.board.ArticleReply;
 import net.oopscraft.application.board.ArticleService;
-import net.oopscraft.application.core.JsonConverter;
-import net.oopscraft.application.core.Pagination;
+import net.oopscraft.core.JsonConverter;
+import net.oopscraft.core.Pagination;
 import net.oopscraft.application.test.ApplicationTestRunner;
 
 public class ArticleServiceTest extends ApplicationTestRunner {

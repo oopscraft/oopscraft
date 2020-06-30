@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
-import net.oopscraft.application.core.Pagination;
+import net.oopscraft.core.Pagination;
 import net.oopscraft.application.user.Authority;
 import net.oopscraft.application.user.AuthorityService;
 import net.oopscraft.application.user.Group;

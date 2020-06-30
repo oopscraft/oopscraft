@@ -8,8 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import net.oopscraft.application.article.ArticleServiceTest;
-import net.oopscraft.application.core.JsonConverter;
-import net.oopscraft.application.core.Pagination;
+import net.oopscraft.core.JsonConverter;
+import net.oopscraft.core.Pagination;
 import net.oopscraft.application.test.ApplicationTestRunner;
 
 public class BoardServiceTest extends ApplicationTestRunner {

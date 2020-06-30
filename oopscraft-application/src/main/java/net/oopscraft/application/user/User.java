@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
 
-import net.oopscraft.application.core.jpa.SystemEntity;
+import net.oopscraft.core.jpa.SystemEntity;
 
 @Entity
 @Table(

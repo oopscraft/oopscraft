@@ -27,8 +27,8 @@ import org.hibernate.annotations.Formula;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 
-import net.oopscraft.application.core.jpa.BooleanStringConverter;
-import net.oopscraft.application.core.jpa.SystemEntity;
+import net.oopscraft.core.jpa.BooleanStringConverter;
+import net.oopscraft.core.jpa.SystemEntity;
 
 @Entity
 @Table(name = "APP_ATCL_INFO", indexes = { @Index(name = "IX_APP_ATCL_INFO_1", columnList = "BORD_ID") })

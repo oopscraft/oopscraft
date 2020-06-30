@@ -26,9 +26,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.ModelAndView;
 
-import net.oopscraft.application.core.IdGenerator;
-import net.oopscraft.application.core.JsonConverter;
-import net.oopscraft.application.core.jpa.SystemEmbeddedException;
+import net.oopscraft.core.IdGenerator;
+import net.oopscraft.core.JsonConverter;
+import net.oopscraft.core.jpa.SystemEmbeddedException;
 import net.oopscraft.application.message.MessageException;
 
 @Controller

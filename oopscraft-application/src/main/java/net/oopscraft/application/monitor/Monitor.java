@@ -3,7 +3,7 @@ package net.oopscraft.application.monitor;
 import java.util.Date;
 import java.util.List;
 
-import net.oopscraft.application.core.ValueMap;
+import net.oopscraft.core.ValueMap;
 
 public class Monitor {
 	

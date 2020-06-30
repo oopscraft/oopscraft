@@ -63,8 +63,8 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ITemplateResolver;
 
 import net.oopscraft.application.api.ApiWebSocketHandler;
-import net.oopscraft.application.core.JsonConverter;
-import net.oopscraft.application.core.Pagination;
+import net.oopscraft.core.JsonConverter;
+import net.oopscraft.core.Pagination;
 import net.oopscraft.application.security.AuthenticationFilter;
 import net.oopscraft.application.security.AuthenticationHandler;
 import net.oopscraft.application.security.AuthenticationProvider;
@@ -78,7 +78,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @EnableWebMvc
 @ComponentScan(
-	nameGenerator = net.oopscraft.application.core.spring.FullBeanNameGenerator.class
+	nameGenerator = net.oopscraft.core.spring.FullBeanNameGenerator.class
 	,excludeFilters = @Filter(type=FilterType.ANNOTATION, value= {
 		Configuration.class
 	})

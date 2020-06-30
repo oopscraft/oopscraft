@@ -27,8 +27,8 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Formula;
 
-import net.oopscraft.application.core.jpa.BooleanStringConverter;
-import net.oopscraft.application.core.jpa.SystemEntity;
+import net.oopscraft.core.jpa.BooleanStringConverter;
+import net.oopscraft.core.jpa.SystemEntity;
 import net.oopscraft.application.security.SecurityPolicy;
 import net.oopscraft.application.user.Authority;
 

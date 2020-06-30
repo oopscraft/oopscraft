@@ -39,9 +39,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import net.oopscraft.application.core.IdGenerator;
-import net.oopscraft.application.core.Pagination;
-import net.oopscraft.application.core.jpa.SystemEmbeddedException;
+import net.oopscraft.core.IdGenerator;
+import net.oopscraft.core.Pagination;
+import net.oopscraft.core.jpa.SystemEmbeddedException;
 
 @Service
 public class UserService {

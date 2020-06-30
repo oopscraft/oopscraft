@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import net.oopscraft.application.code.Code;
 import net.oopscraft.application.code.CodeService;
-import net.oopscraft.application.core.Pagination;
+import net.oopscraft.core.Pagination;
 
 @CrossOrigin
 @RestController

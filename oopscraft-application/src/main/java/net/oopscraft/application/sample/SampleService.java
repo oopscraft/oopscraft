@@ -8,9 +8,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import net.oopscraft.application.core.Pagination;
-import net.oopscraft.application.core.TextTable;
-import net.oopscraft.application.core.mybatis.PageRowBounds;
+import net.oopscraft.core.Pagination;
+import net.oopscraft.core.TextTable;
+import net.oopscraft.core.mybatis.PageRowBounds;
 
 @Service
 public class SampleService {

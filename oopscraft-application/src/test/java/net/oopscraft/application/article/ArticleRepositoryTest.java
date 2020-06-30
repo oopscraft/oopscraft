@@ -11,7 +11,7 @@ import net.oopscraft.application.board.Article;
 import net.oopscraft.application.board.ArticleFile;
 import net.oopscraft.application.board.ArticleReply;
 import net.oopscraft.application.board.ArticleRepository;
-import net.oopscraft.application.core.JsonConverter;
+import net.oopscraft.core.JsonConverter;
 import net.oopscraft.application.test.ApplicationTestRunner;
 
 public class ArticleRepositoryTest extends ApplicationTestRunner {

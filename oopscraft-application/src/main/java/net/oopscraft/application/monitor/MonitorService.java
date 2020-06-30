@@ -18,10 +18,10 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import net.oopscraft.application.api.ApiWebSocketHandler;
-import net.oopscraft.application.core.JsonConverter;
-import net.oopscraft.application.core.ValueMap;
-import net.oopscraft.application.core.process.ProcessExecutor;
-import net.oopscraft.application.core.process.ProcessStreamHandler;
+import net.oopscraft.core.JsonConverter;
+import net.oopscraft.core.ValueMap;
+import net.oopscraft.core.process.ProcessExecutor;
+import net.oopscraft.core.process.ProcessStreamHandler;
 import net.oopscraft.application.monitor.Monitor.ClassLoadingKey;
 import net.oopscraft.application.monitor.Monitor.MemoryKey;
 import net.oopscraft.application.monitor.Monitor.OperatingSystemKey;

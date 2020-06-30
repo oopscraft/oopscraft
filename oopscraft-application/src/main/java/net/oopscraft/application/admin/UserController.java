@@ -28,8 +28,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import net.oopscraft.application.core.Pagination;
-import net.oopscraft.application.core.ValueMap;
+import net.oopscraft.core.Pagination;
+import net.oopscraft.core.ValueMap;
 import net.oopscraft.application.user.Authority;
 import net.oopscraft.application.user.User;
 import net.oopscraft.application.user.UserService;

@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-import net.oopscraft.application.core.jpa.SystemEntity;
+import net.oopscraft.core.jpa.SystemEntity;
 import net.oopscraft.application.message.MessageI18n;
 
 @Entity

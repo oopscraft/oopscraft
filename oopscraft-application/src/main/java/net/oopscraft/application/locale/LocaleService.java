@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import net.oopscraft.application.ApplicationConfig;
-import net.oopscraft.application.core.ValueMap;
+import net.oopscraft.core.ValueMap;
 
 @Service
 public class LocaleService {

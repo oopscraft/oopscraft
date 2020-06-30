@@ -6,9 +6,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 
-import net.oopscraft.application.core.webserver.WebServer;
-import net.oopscraft.application.core.webserver.WebServerBuilder;
-import net.oopscraft.application.core.webserver.WebServerContext;
+import net.oopscraft.core.webserver.WebServer;
+import net.oopscraft.core.webserver.WebServerBuilder;
+import net.oopscraft.core.webserver.WebServerContext;
 
 /**
  * Application Context Configuration

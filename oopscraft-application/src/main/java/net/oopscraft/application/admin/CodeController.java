@@ -19,7 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import net.oopscraft.application.code.Code;
 import net.oopscraft.application.code.CodeService;
-import net.oopscraft.application.core.Pagination;
+import net.oopscraft.core.Pagination;
 
 
 @PreAuthorize("hasAuthority('ADMN_CODE')")

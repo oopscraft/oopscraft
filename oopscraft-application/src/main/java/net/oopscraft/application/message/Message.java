@@ -21,7 +21,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import net.oopscraft.application.core.jpa.SystemEntity;
+import net.oopscraft.core.jpa.SystemEntity;
 
 @Entity
 @Table(

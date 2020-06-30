@@ -19,7 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import net.oopscraft.application.core.Pagination;
+import net.oopscraft.core.Pagination;
 import net.oopscraft.application.page.Page;
 import net.oopscraft.application.page.PageI18n;
 import net.oopscraft.application.page.PageService;

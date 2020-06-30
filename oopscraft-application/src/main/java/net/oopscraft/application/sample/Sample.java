@@ -14,8 +14,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Formula;
 
-import net.oopscraft.application.core.jpa.BooleanStringConverter;
-import net.oopscraft.application.core.jpa.SystemEntity;
+import net.oopscraft.core.jpa.BooleanStringConverter;
+import net.oopscraft.core.jpa.SystemEntity;
 
 @Entity
 @Table(name = "APP_SAMP_INFO")

@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-import net.oopscraft.application.core.jpa.SystemEntity;
+import net.oopscraft.core.jpa.SystemEntity;
 
 @Entity
 @Table(name = "APP_ATCL_FILE_INFO")

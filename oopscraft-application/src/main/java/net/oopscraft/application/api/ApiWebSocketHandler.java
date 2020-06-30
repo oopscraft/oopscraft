@@ -6,8 +6,8 @@ import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 
-import net.oopscraft.application.core.JsonConverter;
-import net.oopscraft.application.core.spring.BroadcastWebSocketHandler;
+import net.oopscraft.core.JsonConverter;
+import net.oopscraft.core.spring.BroadcastWebSocketHandler;
 import net.oopscraft.application.monitor.MonitorService;
 
 @Component

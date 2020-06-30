@@ -24,8 +24,8 @@ import org.springframework.data.domain.Sort.Order;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import net.oopscraft.application.core.IdGenerator;
-import net.oopscraft.application.core.Pagination;
+import net.oopscraft.core.IdGenerator;
+import net.oopscraft.core.Pagination;
 
 @Service
 public class ArticleService {
