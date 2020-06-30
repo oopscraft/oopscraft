@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="net.oopscraft.application.sample.SampleMapper">
+
+    <resultMap id="sample" type="net.oopscraft.application.sample.Sample">
+    	<result column="KEY_1" property="key1"/>
+    	<result column="KEY_2" property="key2"/>
+    	<result column="VAL_CHAR" property="valueChar"/>
+    	<result column="VAL_CLOB" property="valueClob"/>
+    	<result column="VAL_INT" property="valueInt"/>
+    	<result column="VAL_LONG" property="valueLong"/>
+    	<result column="VAL_YN" property="valueYn" typeHandler="yesNoBooleanTypeHandler" />
+    	<result column="VAL_ENUM" property="valueEnum"/>
+    	<result column="valSubQuery" property="valueSubQuery"/>
+    </resultMap>
+
+	<select id="getSamples" resultMap="sample">
+		<![CDATA[
+		/* comment */
+		SELECT 	 A.KEY_1
+				,A.KEY_2
+				,A.VAL_CHAR
+				,A.VAL_CLOB
+				,A.VAL_INT
+				,A.VAL_LONG
+				,A.VAL_YN
+				,A.VAL_ENUM
+				,(SELECT COUNT(*) FROM APP_SAMP_INFO) AS "valSubQuery"
+		FROM 	APP_SAMP_INFO A
+		WHERE 	1 = 1
+		]]>
+		<if test="sample.key1 != null">
+		<![CDATA[
+		AND 	A.KEY_1 = #{sample.key1}
+		]]>
+		</if>
+		<![CDATA[
+		ORDER BY A.KEY_1 ASC
+		]]>
+	</select>
+	
+	<select id="getSampleSummary" resultType="valueMap">
+		<![CDATA[
+		/* comment */
+		SELECT 	 A.KEY_1
+				,A.KEY_2
+				,A.VAL_CHAR
+				,A.VAL_CLOB
+				,A.VAL_INT
+				,A.VAL_LONG
+				,A.VAL_YN
+				,A.VAL_ENUM
+				,(SELECT COUNT(*) FROM APP_SAMP_INFO) AS "valSubQuery"
+		FROM 	APP_SAMP_INFO A
+		WHERE 	1 = 1
+		]]>
+		<if test="key1 != null">
+		<![CDATA[
+		AND 	A.KEY_1 = #{key1}
+		]]>
+		</if>
+		<![CDATA[
+		ORDER BY A.KEY_1 ASC
+		]]>
+	</select>
+	
+	
+</mapper>

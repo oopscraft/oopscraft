@@ -1,0 +1,13 @@
+<style>
+#messageDiv {
+	white-space: pre-line;
+	font-weight: bold;
+	text-align: center;
+}
+</style>
+<body style="display:flex; justify-content:center; align-items:center;">
+	<div class="text-center">
+		<img class="icon large" th:src="@{/static/image/icon_error.png}"/>
+		<div id="messageDiv" th:text="${error.exceptionMessage}" style="white-space:pre-line;"></div>
+	</div>
+</body>

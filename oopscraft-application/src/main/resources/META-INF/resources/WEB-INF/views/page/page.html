@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html layout:decorate="~{_index.html}">
+<main layout:fragment="main">
+	<script>
+	// defines variables
+	const page = new duice.Map();
+	
+	// document ready
+	$(document).ready(function() {
+		getPage();
+	});
+	
+	/**
+	 * Getting page
+	 */
+	function getPage(){
+		$.ajax({
+			 url: '[[@{/api/pages}]]/[[${page.id}]]'
+			,type: 'GET'
+		})
+		.done(function(data, textStatus, jqXHR) {
+			page.fromJson(data);
+			if(page.get('format') === 'MARKDOWN'){
+				$('#contentsMarkdownDiv').show();
+				$('#contentsHtmlDiv').hide();
+			}else if(page.get('format') === 'HTML'){
+				$('#contentsHtmlDiv').show();
+				$('#contentsMarkdownDiv').hide();
+			}
+	   	});
+	}
+	</script>
+	<th:block th:include="|../theme/${_application.theme}/page/page.html|"></th:block>
+</main>

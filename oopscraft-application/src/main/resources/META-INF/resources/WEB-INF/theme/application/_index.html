@@ -1,0 +1,167 @@
+<style>
+	body {
+		display: grid;
+		grid-template-areas:
+		  'header header'
+		  'nav main'
+		  'footer footer';
+		grid-template-columns: 10% 90%;
+		grid-template-rows: 70px auto 50px;
+		padding: 0px;
+		
+	}
+	header {
+		grid-area: header;
+		padding:0px 10px;
+		height:70px;
+		background-color:#fafafa;
+		border-bottom:groove 2px #eee;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	nav {
+		grid-area: nav;
+		padding: 10px;
+	}
+	main {
+		grid-area: main;
+		padding: 10px;
+	}
+	footer {
+		grid-area: footer;
+		border-top: dotted 1px #ccc;
+		background-color: #fafafa;
+	}
+	/* Mobile */
+	@media screen and (max-width: 1023px) {
+		body {
+			display: block;
+			grid-template-areas:none;
+			grid-template-columns: none;
+			grid-template-rows: none;
+		}
+		header {
+			padding: 0 0.5rem;
+		}
+		nav {
+		    width: 90%;
+		    padding: 5%;
+		}
+		main {
+			padding:0 0.5rem;
+		}
+	}
+</style>
+<!-- ================================================== -->
+<!-- START: heaer										-->
+<!-- ================================================== -->
+<header>
+	<div>
+		<a th:href="@{/}">
+			<img th:src="@{/static/image/application.png}" style="vertical-align:middle;"/>
+		</a>
+	</div>
+	<div th:if="${_device=='PC'}">
+		<th:block sec:authorize="isAnonymous()">
+		<img class="icon" th:src="@{/static/image/icon_login.png}"/>
+		<span data-th-text="#{application.global.login}" onclick="_login();" class="link"></span>
+		&nbsp;&nbsp;&nbsp;
+		<img class="icon" th:src="@{/static/image/icon_join.png}"/>
+		<span data-th-text="#{application.global.join}" onclick="_join();" class="link"></span>
+		</th:block>
+		<th:block sec:authorize="isAuthenticated()">
+		<img th:src="${_user.photo} == null ? @{/static/image/icon_user.png} : ${_user.photo}" class="icon" style="width:32px; height:32px; border-radius:32px;"/>
+		<span data-th-text="${_user.name}" style="font-weight:bold;"></span>
+		&nbsp;&nbsp;&nbsp;
+		<img class="icon" th:src="@{/static/image/icon_logout.png}"/>
+		<span data-th-text="#{application.global.logout}" onclick="_logout();" class="link"></span>
+		</th:block>
+		&nbsp;&nbsp;&nbsp;
+		<img class="icon" th:src="@{/static/image/icon_language.png}"/>
+		<select class="duice-select" onchange="_changeLanguage(this.value);" style="width:100px;">
+			<option th:each="language:${_languages}" th:value="${language.language}" th:text="${language.displayLanguageByLocale}" th:selected="${language.language} == ${#locale.language}"></option>
+		</select>
+	</div>
+	<div th:if="${_device=='MOBILE'}">
+		<script>
+		function openNav() {
+			$('nav').slideToggle(200);
+		}
+		</script>
+		<select class="duice-select" onchange="_changeLanguage(this.value);" style="width:100px;">
+			<option th:each="language:${_languages}" th:value="${language.language}" th:text="${language.displayLanguageByLocale}" th:selected="${language.language} == ${#locale.language}"></option>
+		</select>
+		&nbsp;&nbsp;|&nbsp;&nbsp;
+		<img th:src="@{/static/image/icon_menu.png}" onclick="openNav();" style="vertical-align:middle; height:2rem;"/>
+	</div>
+</header>
+<!-- ================================================== -->
+<!-- END: header										-->
+<!-- ================================================== -->
+
+<!-- ================================================== -->
+<!-- START: nav											-->
+<!-- ================================================== -->
+<nav th:styleappend="${_device=='MOBILE'} ? 'display:none;' : ''">
+	<th:block th:if="${_device=='MOBILE'}">
+	<div class="app-flex left gap" sec:authorize="isAnonymous()">
+		<button class="button" onclick="_login();">
+			<img class="icon" th:src="@{/static/image/icon_login.png}"/>
+			<span data-th-text="#{application.global.login}"></span>
+		</button>
+		<button class="button" onclick="_join();">
+			<img class="icon" th:src="@{/static/image/icon_join.png}"/>
+			<span data-th-text="#{application.global.join}"></span>
+		</button>
+	</div>
+	<div class="app-flex gap" sec:authorize="isAuthenticated()">
+		<span>
+			<img th:src="${_user.photo} == null ? @{/static/image/icon_user.png} : ${_user.photo}" class="icon" style="width:32px; height:32px; border-radius:32px;"/>
+			<span data-th-text="${_user.name}" style="font-weight:bold;"></span>
+		</span>
+		<button class="button" onclick="_logout();">
+			<img class="icon" th:src="@{/static/image/icon_logout.png}"/>
+			<span data-th-text="#{application.global.logout}"></span>
+		</button>
+	</div>
+	<hr/>
+	</th:block>	
+	<ul is="duice-ul"
+	data-duice-bind="_menus,_menu" 
+	data-duice-hierarchy="id,upperId"
+	data-duice-foldable="false">
+		<li>
+			<a href="javascript:void(0);" 
+			data-link-url="[@duice[$context._menu.get('linkUrl')]]" 
+			data-link-target="[@duice[$context._menu.get('linkTarget')]]"
+			onclick="javascript:_openLink(this.dataset.linkUrl, this.dataset.linkTarget);"
+			style="display:block; border-bottom:dotted 1px #ccc; line-height:2.5rem;">
+				<img is="duice-img" data-duice-bind="_menu,icon" th:src="@{/static/image/icon_menu.png}" style="width:24px; height:24px;"/>
+				<span is="duice-span" data-duice-bind="_menu,name" style="font-weight:bold;"></span>
+			</a>
+		</li>
+	</ul>
+</nav>
+<!-- ================================================== -->
+<!-- END: nav											-->
+<!-- ================================================== -->
+
+<!-- ================================================== -->
+<!-- START: main										-->
+<!-- ================================================== -->
+<main layout:fragment="main">
+</main>
+<!-- ================================================== -->
+<!-- END: main											-->
+<!-- ================================================== -->
+
+<!-- ================================================== -->
+<!-- START: footer										-->
+<!-- ================================================== -->
+<footer class="app-flex center middle">
+	<img th:src="@{/static/image/copyright.png}"/>
+</footer>
+<!-- ================================================== -->
+<!-- END: footer										-->
+<!-- ================================================== -->
