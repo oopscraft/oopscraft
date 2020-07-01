@@ -4,16 +4,101 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<artifactId>oopscraft</artifactId>
 		<groupId>net.oopscraft</groupId>
+		<artifactId>oopscraft</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>oopscraft-application</artifactId>
-	<name>OopsCraft core</name>
-	<description>A simple core.</description>
-	<!-- FIXME change it to the project's website -->
-	<url>http://www.example.com</url>
-	<dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>./lib</directory>
+							<followSymlinks>false</followSymlinks>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.4</version>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<skipTests>true</skipTests>
+					<outputDirectory>./lib</outputDirectory>
+					<overWriteIfNewer>true</overWriteIfNewer>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.3.1</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>./lib/</classpathPrefix>
+							<mainClass>net.oopscraft.application.Application</mainClass>
+						</manifest>
+						<manifestEntries>
+							<Class-Path>lib/ojdbc6-4.0.jar</Class-Path>
+						</manifestEntries>
+					</archive>
+					<outputDirectory>./</outputDirectory>
+				</configuration>
+			</plugin>
+			<plugin>
+			    <groupId>org.hibernate.orm.tooling</groupId>
+			    <artifactId>hibernate-enhance-maven-plugin</artifactId>
+			    <version>5.2.9.Final</version>
+			    <executions>
+			        <execution>
+			            <configuration>
+			                <failOnError>true</failOnError>
+			                <enableLazyInitialization>true</enableLazyInitialization>
+			            </configuration>
+			            <goals>
+			                <goal>enhance</goal>
+			            </goals>
+			        </execution>
+			    </executions>
+			</plugin>
+			<!-- creates distribution binary achieve -->
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-assembly-plugin</artifactId>
+			    <version>3.0.0</version>
+			    <configuration>
+			        <descriptors>
+			            <descriptor>assembly.xml</descriptor>
+			        </descriptors>
+			    </configuration>
+			    <executions>
+			        <execution>
+			            <id>dist</id>
+			            <phase>package</phase>
+			            <goals>
+			                <goal>single</goal>
+			            </goals>
+			        </execution>
+			    </executions>
+			 </plugin>
+		</plugins>
+	</build>
+ 	<dependencies>
 		<dependency>
 			<groupId>net.oopscraft</groupId>
 			<artifactId>oopscraft-core</artifactId>

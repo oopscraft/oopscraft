@@ -41,12 +41,12 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.RestController;
 
+import net.oopscraft.application.message.MessageSource;
 import net.oopscraft.core.PasswordBasedEncryptor;
 import net.oopscraft.core.ValueMap;
 import net.oopscraft.core.mybatis.CamelCaseValueMap;
 import net.oopscraft.core.mybatis.PageRowBoundsInterceptor;
 import net.oopscraft.core.mybatis.YesNoBooleanTypeHandler;
-import net.oopscraft.application.message.MessageSource;
 
 /**
  * Application Context Configuration
@@ -85,7 +85,7 @@ public class ApplicationContext {
 	@Bean
 	public ApplicationConfig applicationConfig() throws Exception {
 		LOGGER.info("Creates applicationConfig");
-		FileSystemResource resource = new FileSystemResource("conf/application.properties");
+		FileSystemResource resource = new FileSystemResource(String.format("conf/%s/application.properties", ApplicationConfig.getEnvironment()));
 		Properties properties = PropertiesLoaderUtils.loadProperties(resource);
 		PasswordBasedEncryptor pbEncryptor = new PasswordBasedEncryptor();
 		for(String propertyName : properties.stringPropertyNames()) {

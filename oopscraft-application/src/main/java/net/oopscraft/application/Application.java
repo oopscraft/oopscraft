@@ -24,7 +24,7 @@ public class Application {
 	public static void main(String[] args) throws Exception {
 
 		// setting log4j2 configuration path
-		Configurator.initialize(null, "conf/log4j2.xml");
+		Configurator.initialize(null, String.format("conf/%s/log4j2.xml", ApplicationConfig.getEnvironment()));
 		
 		// loads application context
 		applicationContext = new AnnotationConfigApplicationContext();

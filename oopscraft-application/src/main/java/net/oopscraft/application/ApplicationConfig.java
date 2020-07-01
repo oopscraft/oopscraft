@@ -5,6 +5,19 @@ import net.oopscraft.application.security.SecurityPolicy;
 
 public class ApplicationConfig {
 	
+	/**
+	 * Returns environment
+	 * @return
+	 */
+	public static String getEnvironment() {
+		String environment = System.getProperty("application.environment");
+		if(environment == null || environment.trim() == "") {
+			return "dev";
+		}else {
+			return environment.trim();
+		}
+	}
+	
 	SecurityPolicy securityPolicy;
 	String theme;
 	String locales;
