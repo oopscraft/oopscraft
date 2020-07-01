@@ -85,7 +85,7 @@ public class ApplicationContext {
 	@Bean
 	public ApplicationConfig applicationConfig() throws Exception {
 		LOGGER.info("Creates applicationConfig");
-		FileSystemResource resource = new FileSystemResource(String.format("conf/%s/application.properties", ApplicationConfig.getEnvironment()));
+		FileSystemResource resource = new FileSystemResource(String.format("conf/%s/application.properties", ApplicationConfig.getProfile()));
 		Properties properties = PropertiesLoaderUtils.loadProperties(resource);
 		PasswordBasedEncryptor pbEncryptor = new PasswordBasedEncryptor();
 		for(String propertyName : properties.stringPropertyNames()) {

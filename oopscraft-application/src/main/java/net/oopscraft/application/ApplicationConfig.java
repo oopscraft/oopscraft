@@ -9,12 +9,12 @@ public class ApplicationConfig {
 	 * Returns environment
 	 * @return
 	 */
-	public static String getEnvironment() {
-		String environment = System.getProperty("application.environment");
-		if(environment == null || environment.trim() == "") {
+	public static String getProfile() {
+		String profile = System.getenv("application.profile");
+		if(profile == null || profile.trim() == "") {
 			return "dev";
 		}else {
-			return environment.trim();
+			return profile.trim();
 		}
 	}
 	
