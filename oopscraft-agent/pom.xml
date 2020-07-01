@@ -10,8 +10,6 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>oopscraft-agent</artifactId>
-	<name>oopscraft-agent</name>
-	<url>http://maven.apache.org</url>
 	<dependencies>
 		<dependency>
 			<groupId>net.oopscraft</groupId>
