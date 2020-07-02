@@ -47,7 +47,7 @@ public class Agent {
 	 * @throws Exception
 	 */
 	private static Properties loadConfigProperties() throws Exception {
-		FileSystemResource resource = new FileSystemResource("conf/agent.properties");
+		FileSystemResource resource = new FileSystemResource(String.format("conf/%s/agent.properties", AgentConfig.getProfile()));
 		Properties configProperties = PropertiesLoaderUtils.loadProperties(resource);
 		PasswordBasedEncryptor pbEncryptor = new PasswordBasedEncryptor();
 		for(String propertyName : configProperties.stringPropertyNames()) {

@@ -1,6 +1,19 @@
 package net.oopscraft.agent;
 
 public class AgentConfig {
+	
+	/**
+	 * Returns environment
+	 * @return
+	 */
+	public static String getProfile() {
+		String profile = System.getProperty("agent.profile");
+		if(profile == null || profile.trim() == "") {
+			return "dev";
+		}else {
+			return profile.trim();
+		}
+	}
 
 	class WebServer {
 		int port = 8080;

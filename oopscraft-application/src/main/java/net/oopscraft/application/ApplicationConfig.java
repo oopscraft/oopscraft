@@ -10,7 +10,7 @@ public class ApplicationConfig {
 	 * @return
 	 */
 	public static String getProfile() {
-		String profile = System.getenv("application.profile");
+		String profile = System.getProperty("application.profile");
 		if(profile == null || profile.trim() == "") {
 			return "dev";
 		}else {
