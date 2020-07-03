@@ -2,6 +2,7 @@ package net.oopscraft.core;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -92,6 +93,39 @@ public class PasswordBasedEncryptor {
         }
         m.appendTail(sb);
         return sb.toString();
+    }
+    
+    /**
+     * main
+     * @param args
+     * @throws Exception
+     */
+    public static void main(String[] args) throws Exception {
+    	try {
+	        System.out.print("Please enter 1.Encryption or 2.Decryption:");	// NOPMD
+	        @SuppressWarnings("resource")
+	        Scanner scanner = new Scanner(System.in);
+	        String type = scanner.nextLine();
+	        PasswordBasedEncryptor passwordBasedEncryptor = new PasswordBasedEncryptor();
+	        if("1".equals(type)) {
+	            System.out.print("enter original value:");	// NOPMD
+	            String value = scanner.nextLine();
+	            String encrypted = passwordBasedEncryptor.encryptIdentifiedValue(value);
+	            System.out.println(" encrypted:" + encrypted);	// NOPMD
+	            String decrypted = passwordBasedEncryptor.decryptIdentifiedValue(encrypted);
+	            System.out.println(" decrypted:" +  decrypted);	// NOPMD
+	        }
+	        else if("2".equals(type)) {
+	            System.out.print("enter encrypted value:");	// NOPMD
+	            String value = scanner.nextLine();
+	            String decrypted = passwordBasedEncryptor.decryptIdentifiedValue(value);
+	            System.out.println(" decrypted:" + decrypted);	// NOPMD
+	        }
+	        System.exit(0);
+    	}catch(Exception e) {
+    		e.printStackTrace(System.err);
+    		System.exit(-1);
+    	}
     }
 
 }
