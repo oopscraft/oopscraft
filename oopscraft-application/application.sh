@@ -42,17 +42,6 @@ function stop() {
 	echo -e "\nshutdown is complete."
 }
 
-# log
-function log() {
-	tput rmam
-	tail -F ./log/${APP_NAME}.log
-}
-
-# crypto
-function crypto() {
-	java -cp ./*:./lib/* net.oopscraft.application.core.PasswordBasedEncryptor
-}
-
 # main
 case ${1} in
     start) 
@@ -64,17 +53,16 @@ case ${1} in
 	stop)
 		stop
 		;;
-	log)
-		log
-		;;
-	crypto)
-		crypto
+	restart)
+		stop
+		start
 		;;
     *)
-        echo "Usage: ${0} [start|status|stop|log|crypto]"
+        echo "Usage: ${0} [start|status|stop|restart]"
         ;;
 esac
 
+# exit
 exit 0
 
 
