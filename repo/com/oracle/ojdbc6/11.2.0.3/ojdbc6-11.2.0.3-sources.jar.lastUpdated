@@ -1,0 +1,8 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Thu Jul 02 17:00:03 KST 2020
+https\://repo.maven.apache.org/maven2/.lastUpdated=1593675006412
+@default-Spring\ Plugins-http\://repo.spring.io/plugins-release/.lastUpdated=1593675084545
+http\://clojars.org/repo/.lastUpdated=1593676803518
+http\://clojars.org/repo/.error=
+https\://repo.maven.apache.org/maven2/.error=
+http\://repo.spring.io/plugins-release/.error=Could not transfer artifact com.oracle\:ojdbc6\:jar\:sources\:11.2.0.3 from/to Spring Plugins (http\://repo.spring.io/plugins-release/)\: Access denied to http\://repo.spring.io/plugins-release/com/oracle/ojdbc6/11.2.0.3/ojdbc6-11.2.0.3-sources.jar. Error code 403, Forbidden

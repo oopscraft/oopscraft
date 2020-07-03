@@ -1,7 +1,7 @@
 #!/bin/bash
 APP_FILE=$(basename ${0})
-APP_NAME=${APP_FILE%.*}
-PID_FILE=${APP_NAME}.pid
+APP_NAE=${APP_FILE%.*}
+PID_FILE=${APP_NAE}.pid
 touch ${PID_FILE}
 PID=$(cat ${PID_FILE})
 
