@@ -9,12 +9,11 @@ import javax.sql.DataSource;
 
 import org.apache.commons.dbcp2.BasicDataSourceFactory;
 import org.apache.commons.text.CaseUtils;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.logging.slf4j.Slf4jImpl;
 import org.apache.ibatis.plugin.Interceptor;
 import org.hibernate.cfg.AvailableSettings;
 import org.mybatis.spring.SqlSessionFactoryBean;
-import org.mybatis.spring.annotation.MapperScan;
+import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.bind.Binder;
@@ -65,12 +64,6 @@ import net.oopscraft.core.mybatis.YesNoBooleanTypeHandler;
 @EnableJpaRepositories(
 	 entityManagerFactoryRef = "entityManagerFactory"
 	 ,basePackages = "net.oopscraft.application"
-)
-@MapperScan(
-	 annotationClass=Mapper.class
-	,nameGenerator = net.oopscraft.core.spring.FullBeanNameGenerator.class
-	,sqlSessionFactoryRef = "sqlSessionFactory"
-	,basePackages = "net.oopscraft.application"
 )
 public class ApplicationContext {
 	
@@ -204,12 +197,17 @@ public class ApplicationContext {
 		configuration.setLogImpl(Slf4jImpl.class);
 		configuration.getTypeAliasRegistry().registerAlias(CaseUtils.toCamelCase(ValueMap.class.getSimpleName(),false), CamelCaseValueMap.class);
 		configuration.getTypeAliasRegistry().registerAlias(CaseUtils.toCamelCase(YesNoBooleanTypeHandler.class.getSimpleName(),false), YesNoBooleanTypeHandler.class);
+		configuration.setLazyLoadingEnabled(true);
+		configuration.setAggressiveLazyLoading(false);
 		sqlSessionFactoryBean.setConfiguration(configuration);
 		
 		// sets intercepter instance
 		sqlSessionFactoryBean.setPlugins(new Interceptor[] {
 			new PageRowBoundsInterceptor()
 		});
+		
+		// lazy-loading
+		
 		
 		// sets mapLocations
 		Vector<Resource> mapperLocationResources = new Vector<Resource>();
@@ -222,11 +220,22 @@ public class ApplicationContext {
 				}
 			}
 		}
-		sqlSessionFactoryBean.setMapperLocations(mapperLocationResources.toArray(new Resource[mapperLocationResources.size()]));
+		//sqlSessionFactoryBean.setMapperLocations(mapperLocationResources.toArray(new Resource[mapperLocationResources.size()]));
 		
 		// invokes afterPropertiesSet method
 		sqlSessionFactoryBean.afterPropertiesSet();
 		return sqlSessionFactoryBean;
+	}
+	
+	@Bean
+	@DependsOn({"sqlSessionFactory"})
+	public MapperScannerConfigurer mapperScannerConfigurer() throws Exception {
+		MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
+		mapperScannerConfigurer.setNameGenerator(new net.oopscraft.core.spring.FullBeanNameGenerator());
+		mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
+		mapperScannerConfigurer.setLazyInitialization(Boolean.toString(true));
+		mapperScannerConfigurer.setBasePackage("net.oopscraft.application");
+		return mapperScannerConfigurer;
 	}
 
 	/**

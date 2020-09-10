@@ -202,12 +202,12 @@
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
-			<version>3.4.4</version>
+			<version>3.5.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
-			<version>1.3.2</version>
+			<version>2.0.5</version>
 		</dependency>
 		<!-- HSQL driver -->
 		<dependency>
