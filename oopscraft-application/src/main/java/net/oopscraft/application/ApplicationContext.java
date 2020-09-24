@@ -220,10 +220,11 @@ public class ApplicationContext {
 				}
 			}
 		}
+		// 꺼도 됨.
 		//sqlSessionFactoryBean.setMapperLocations(mapperLocationResources.toArray(new Resource[mapperLocationResources.size()]));
 		
 		// invokes afterPropertiesSet method
-		sqlSessionFactoryBean.afterPropertiesSet();
+		//sqlSessionFactoryBean.afterPropertiesSet();
 		return sqlSessionFactoryBean;
 	}
 	
